@@ -1,0 +1,4 @@
+5,coreJava,1000.00
+6,AdvJava,2000.00
+7,WebDevelopment,3000.00
+8,Dsa,4000.00
