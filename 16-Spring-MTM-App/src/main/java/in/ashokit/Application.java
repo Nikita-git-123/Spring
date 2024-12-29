@@ -1,13 +1,10 @@
 package in.ashokit;
 
-import java.util.Date;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
-import in.ashokit.entity.OrderDetailsEntity;
-import in.ashokit.repo.OrderDetailsRepo;
+import in.ashokit.service.UserRoleService;
 
 @SpringBootApplication
 public class Application {
@@ -15,18 +12,9 @@ public class Application {
 	public static void main(String[] args) {
 		ConfigurableApplicationContext ctxt = SpringApplication.run(Application.class, args);
 		
-		OrderDetailsRepo bean = ctxt.getBean(OrderDetailsRepo.class);
+		UserRoleService bean = ctxt.getBean(UserRoleService.class);
 		
-		OrderDetailsEntity ode = new OrderDetailsEntity();
-		
-		ode.setOrderBy("NIKITa");
-		ode.setOrderDate(new Date());
-		
-		OrderDetailsEntity savedEntity = bean.save(ode);
-		
-		System.out.println(savedEntity);
-		
-		ctxt.close();
+		bean.saveUserWithRoles();
 	}
 
 }
