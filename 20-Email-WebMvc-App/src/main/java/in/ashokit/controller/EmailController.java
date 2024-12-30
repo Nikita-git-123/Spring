@@ -12,18 +12,18 @@ public class EmailController {
 
 	@Autowired
 	private JavaMailSender mailSender;
-
+	
 	@GetMapping("/email")
 	@ResponseBody
-	public String sendEmail() throws Exception {
+	public String sendEmail() {
 		
 		SimpleMailMessage msg = new SimpleMailMessage();
 		
 		msg.setTo("0.outfithub@gmail.com");
-		msg.setSubject("Welcome to mail service");
+		msg.setText("Welcome to Outfit Hub ....");
 		
 		mailSender.send(msg);
 		
-		return "Successfull.......";
+		return "Email sent successfully...";
 	}
 }
