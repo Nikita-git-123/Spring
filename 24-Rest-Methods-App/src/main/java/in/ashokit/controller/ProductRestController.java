@@ -20,7 +20,8 @@ public class ProductRestController {
 	
 	@GetMapping(
 			value = "/product/{pid}",
-			produces = "application/json"
+			consumes = "application/json, application.xml",
+			produces = "application/json, application.xml"
 	)
 	public ResponseEntity<Product> getProduct(@PathVariable Integer pid) {
 		Product p = new Product(pid, "Mouse", 1200.00);
@@ -29,7 +30,8 @@ public class ProductRestController {
 	
 	@GetMapping(
 			value = "/products",
-			produces = "application/json"
+			consumes = "application/json, application.xml",
+			produces = "application/json, application.xml"
 	)
 	public ResponseEntity<List<Product>> getProducts(){
 		
