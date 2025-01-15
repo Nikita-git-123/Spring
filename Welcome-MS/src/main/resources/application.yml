@@ -1,6 +1,6 @@
 spring:
   application:
-    name: 30_Welcome_MS
+    name: Welcome-MS
   boot:
     admin:
       client:
