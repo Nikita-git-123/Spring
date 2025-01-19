@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: 31-CircuitBreaker-DesignPattern-App
+server:
+  port: 9090
+
+management:
+ endpoints:
+  web:
+   exposure:
+     include: '*'
+
+resilience4j:
+ circuitbreaker:
+   configs:
+     default: 
+       registerHealthIndicator: true
+       slidingWindowSize: 10
+       minimumNumberOfCalls: 5
+       permittedNumberOfCallsInHalfOpenState: 3
+       automaticTransitionFromOpenToHalfOpenEnabled: true
+       waitDurationInOpenState: 100s
+       failureRateThreshold: 50
